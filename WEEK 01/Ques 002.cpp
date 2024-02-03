@@ -1,10 +1,9 @@
 #include<iostream>
 using namespace std;
-int find(int [],int ,int ,int );
-int c=0;
+int binary(int [],int ,int ,int ,int&);
 int main()
 {
-    int n,m,k,flag;
+    int n,m,k,flag,c;
     cout<<"Enter the number of Array:";
     cin>>n;
     while(n!=0)
@@ -14,28 +13,34 @@ int main()
         int a[m];
         for(int i=0;i<m;i++)
         {
-            cout<<"Enter the"<<i+ 1<<" element:";
+            cout<<"Enter the "<<i+ 1<<" element:";
             cin>>a[i];
         }
         cout<<"Enter the number:";
         cin>>k;
-        flag=find(a,0,m,k);
-        if(flag==1)
-            cout<<"Present"<<c<<endl;
+        c=0;
+        flag=binary(a,0,m,k,c);
+        if(flag!=0)
+           cout<<"Present "<<c<<endl;
         else
-            cout<<"Not Present"<<c<<endl;
+            cout<<"Not Present "<<c<<endl;
         n--;
     }
+    return 0;
 }
 
-int find(int a[],int lb,int ub,int k)
+int binary(int a[],int lb,int ub,int k,int &c)
 {
-    c++;
-    if(k==a[ub/2])
-    return 1;
-    else if(k<a[ub/2])
-    find(a,lb,ub/2,k);
-    else if(k>a[ub/2])
-    find(a,ub/2,ub,k);
+    if(lb<=ub)
+    {
+        c++;
+        int mid=(ub+lb)/2;
+        if(k==a[mid])
+        return c;
+        else if(k<a[mid])
+        return binary(a,lb,mid- 1,k,c);
+        else 
+        return binary(a,mid+ 1,ub,k,c);
+    }
     return 0;
 }
