@@ -19,7 +19,7 @@ int main()
         cout<<"Enter the number:";
         cin>>k;
         c=0;
-        flag=binary(a,0,m,k,c);
+        flag=binary(a,0,m- 1,k,c);
         if(flag!=0)
            cout<<"Present "<<c<<endl;
         else
