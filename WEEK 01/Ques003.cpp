@@ -1,11 +1,10 @@
 #include<iostream>
 using namespace std;
-void find(int [],int ,int ); 
+void find(int [],int ,int ,int ); 
 void linear(int [],int ,int ,int ,int );
-int c=0;
 int main()
 {
-    int n,m,k;
+    int n,m,k,c;
     cout<<"Enter the Number of Array:";
     cin>>n;
     while(n!=0)
@@ -20,18 +19,18 @@ int main()
         }
         cout<<"Enter the number:";
         cin>>k;
-        find(a,m,k);
         c=0;
+        find(a,m,k,c);
         n--;
     }
     return 0;
 }
 
-void find(int a[],int m,int k)
+void find(int a[],int m,int k,int c)
 {
-    c++;
     if(a[0]==k)
     {
+        c++;
         cout<<"Present "<<c<<endl;
         return ;
     }
@@ -42,7 +41,7 @@ void find(int a[],int m,int k)
         {
             c++;
         }
-        linear(a,i/2,i,k,c- 1);
+        linear(a,i/2,min(m,i),k,c- 1);
     }
 }
 
@@ -51,13 +50,18 @@ void linear(int a[],int lb,int ub,int k,int c)
     int flag=0;
     for(int i=lb;i<ub;i++)
     {
-        c++;
-        if(a[i]==k)
+        if(a[i]<=k)
         {
-            flag=1;
-            cout<<"Present "<<c<<endl;
-            break;
+            c++;
+            if(a[i]==k)
+            {
+                flag=1;
+                cout<<"Present "<<c<<endl;
+                break;
+            }
         }
+        else 
+        break;
     }
     if(flag==0)
     cout<<"Not Present "<<c<<endl;
