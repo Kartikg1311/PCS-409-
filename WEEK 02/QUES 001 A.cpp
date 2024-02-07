@@ -1,3 +1,5 @@
+///using Binary Search 
+
 #include<iostream>
 using namespace std;
 int binarysearch(int [],int ,int ,int ,int );
