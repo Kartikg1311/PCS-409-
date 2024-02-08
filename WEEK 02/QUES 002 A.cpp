@@ -35,14 +35,10 @@ void func(int a[],int m)
                 {
                     flag=1;
                     cout<<i+ 1<<" , "<<j+ 1<<" , "<<k+ 1<<endl;
-                    break;
+                    return ;
                 }
             }
-            if(flag==1)
-            break;
         }
-        if(flag==1)
-        break;
     }
     if(flag==0)
     cout<<"No Sequence Found."<<endl;
