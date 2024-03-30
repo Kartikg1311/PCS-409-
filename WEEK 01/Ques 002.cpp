@@ -13,7 +13,6 @@ int main()
         int a[m];
         for(int i=0;i<m;i++)
         {
-            cout<<"Enter the "<<i+ 1<<" element:";
             cin>>a[i];
         }
         cout<<"Enter the number:";
